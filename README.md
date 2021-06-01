@@ -1,7 +1,14 @@
-# React Template
+## Project Name
+Mic'd Up
 
-**Use this template to get up and running quickly on projects.**
+## Overview
 
-This is just like the webpack template. Use it, create the repo, connect it to your local and `npm i`.
+## Personal Motivation
 
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
+## Color Palette
+
+## ERD
+
+## Wireframe
+
+## Deployed App
