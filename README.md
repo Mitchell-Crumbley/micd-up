@@ -10,7 +10,7 @@ https://coolors.co/f3de8a-337357-053c5e-c9d6ea-be6e46
 ## ERD
 https://dbdiagram.io/d/60763b6fb6aeb3052d8ffb5a
 
-https://github.com/Mitchell-Crumbley/micd-up/blob/main/Front%20End%20Capstone.png
+![Capstone-Palette] (https://github.com/Mitchell-Crumbley/micd-up/blob/main/Front%20End%20Capstone.png)
 ## Wireframe
 
 ## Deployed App
@@ -19,12 +19,15 @@ https://angry-khorana-701b2f.netlify.app/
 ## Project Board
 https://github.com/Mitchell-Crumbley/micd-up/projects/1?add_cards_query=is%3Aopen
 
-## Featuer Lise
+## Featuer List
 - Multiple source Authentication (Google, Yahoo, Github)
-- Mobile responsible
--  
+- Mobile responsinsive
+- Users who create an event are the only ones who can update them outside of the site adminstrator (me).
+- 
 
 ## User Story
 - User can create a new Open Mic or Showcase Event if their user ID matches that of the initial creator or admministrator of the site (me)
 - User can create a venue that hosts an event. These can be reuseable. 
+- Users may pin others events to their homepage as to follow them and acquire a list.  
 - User can update the details of a venue or event. 
+- Users can generate a random list of events to attend in chornological order after enough have been liked. 
