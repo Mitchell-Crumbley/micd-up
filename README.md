@@ -8,7 +8,7 @@ I want to make this application because I have been a stand up comedian in the s
 ## Color Palette
 https://coolors.co/f3de8a-337357-053c5e-c9d6ea-be6e46
 ## ERD
-https://raw.githubusercontent.com/Mitchell-Crumbley/micd-up/main/Front%20End%20Capstone.png
+https://dbdiagram.io/d/60763b6fb6aeb3052d8ffb5a
 ## Wireframe
 https://www.canva.com/design/DAEgL3lfcdc/oucctQQihzRLQlzpjVKiKA/view?utm_content=DAEgL3lfcdc&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent
 ## Deployed App
