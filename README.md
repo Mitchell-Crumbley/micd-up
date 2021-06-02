@@ -41,9 +41,11 @@ DELETE
 HOME
 - When a user logs in they will be taken to their home page where they will see the events they are currently tracking and or ones they have have created separated into two areas. 
 
+OTHER MVP
+- Users can generate a random list of events to attend in chornological order after enough have been liked. 
+
 EXTRAS
 - Users may pin others events to their homepage as to follow them and acquire a list.  
-- Users can generate a random list of events to attend in chornological order after enough have been liked. 
 - User may sign up for a predetermined number of slots by the creator. Maybe even lock it into a given timeframe.
 - User maintains statistics (counters) on their home/profile page that will return progress or statstical analysis of their performance. 
 
