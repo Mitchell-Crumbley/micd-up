@@ -10,7 +10,7 @@ https://coolors.co/f3de8a-337357-053c5e-c9d6ea-be6e46
 ## ERD
 https://raw.githubusercontent.com/Mitchell-Crumbley/micd-up/main/Front%20End%20Capstone.png
 ## Wireframe
-
+https://www.canva.com/design/DAEgL3lfcdc/oucctQQihzRLQlzpjVKiKA/view?utm_content=DAEgL3lfcdc&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent
 ## Deployed App
 https://angry-khorana-701b2f.netlify.app/
 
