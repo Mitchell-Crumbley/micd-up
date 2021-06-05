@@ -1,7 +1,17 @@
 {
-"-Mb8ureogetMzXFGlsoJ":{"userID":1,"venueName":"Ursa","location":"6593 Superior Circle"},
-"-Mb8urepToAO5l0Qo7RU":{"userID":2,"venueName":"Henrie","location":"062 Anzinger Court"},
-"-Mb8ureq5KKUU0NZSiNm":{"userID":3,"venueName":"Doroteya","location":"16932 Dayton Street"},
-"-Mb8ureq5KKUU0NZSiNn":{"userID":4,"venueName":"Lurette","location":"29 Arapahoe Terrace"},
-"-Mb8ureriUeQ73kns6BF":{"userID":5,"venueName":"Wendall","location":"9494 Little Fleur Place"}
+  "-Mb8ureogetMzXFGlsoJ" : {
+    "location" : "6593 Superior Circle",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueName" : "Twin Kegs 2"
+  },
+  "-Mb8urepToAO5l0Qo7RU" : {
+    "location" : "062 Anzinger Court",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueName" : "The East Room"
+  },
+  "-Mb8ureq5KKUU0NZSiNm" : {
+    "location" : "16932 Dayton Street",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueName" : "The Comedy Bar"
+  }
 }

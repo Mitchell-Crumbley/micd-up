@@ -1,7 +1,42 @@
 {
-"-Mb8ucPzRWgbjXeovmEF":{"userID":1,"venueID":"Jeniece","location":"9 Sommers Lane","time":"3/10/2021","details":"cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus"},
-"-Mb8ucQ-AsJxbqVMRFZA":{"userID":2,"venueID":"Tobin","location":"7 Longview Way","time":"4/25/2021","details":"ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla"},
-"-Mb8ucQ1YJnE6ItBpAz1":{"userID":3,"venueID":"Katharina","location":"0291 Lindbergh Trail","time":"6/16/2020","details":"et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare"},
-"-Mb8ucQ2a5gR_X-ccwrL":{"userID":4,"venueID":"Stefania","location":"0 Cardinal Pass","time":"5/19/2021","details":"sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur"},
-"-Mb8ucQ49UArX05EvML7":{"userID":5,"venueID":"Reinaldo","location":"56 Nancy Lane","time":"8/25/2020","details":"vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula"}
+  "-Mb8ucPzRWgbjXeovmEF" : {
+    "details" : "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus",
+    "location" : "9 Sommers Lane",
+    "showcaseName" : "Showcase 1",
+    "time" : "3/10/2021",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueID" : "-Mb8ureogetMzXFGlsoJ"
+  },
+  "-Mb8ucQ-AsJxbqVMRFZA" : {
+    "details" : "ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla",
+    "location" : "7 Longview Way",
+    "showcaseName" : "Showcase 2",
+    "time" : "4/25/2021",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueID" : "-Mb8ureogetMzXFGlsoJ"
+  },
+  "-Mb8ucQ1YJnE6ItBpAz1" : {
+    "details" : "et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare",
+    "location" : "0291 Lindbergh Trail",
+    "showcaseName" : "Showcase 3",
+    "time" : "6/16/2020",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueID" : "-Mb8urepToAO5l0Qo7RU"
+  },
+  "-Mb8ucQ2a5gR_X-ccwrL" : {
+    "details" : "sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur",
+    "location" : "0 Cardinal Pass",
+    "showcaseName" : "Showcase 4",
+    "time" : "5/19/2021",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueID" : "-Mb8urepToAO5l0Qo7RU"
+  },
+  "-Mb8ucQ49UArX05EvML7" : {
+    "details" : "vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula",
+    "location" : "56 Nancy Lane",
+    "showcaseName" : "Showcase 5",
+    "time" : "8/25/2020",
+    "userID" : "B9Cwry5WrRRTS5xRtn7ltaioW412",
+    "venueID" : "-Mb8ureq5KKUU0NZSiNm"
+  }
 }
