@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import ShowcaseCards from '../components/ShowcaseCards';
 
 export default function ShowcaseView({
-  showcase, user, setShowcases
+  showcases, user, setShowcases, venues
 }) {
   return (
     <div className="showcase-container">
-      {showcase.map((showcaseObj) => (
+      {showcases.map((showcaseObj) => (
         <ShowcaseCards
           key={showcaseObj.firebaseKey}
+          firebaseKey={showcaseObj.firebaseKey}
           user={user}
+          uid={showcaseObj.uid}
           setShowcases={setShowcases}
+          venues={venues}
           {...showcaseObj}
         />
       ))}
@@ -20,7 +23,8 @@ export default function ShowcaseView({
 }
 
 ShowcaseView.propTypes = {
-  showcase: PropTypes.array,
+  showcases: PropTypes.array,
   setShowcases: PropTypes.func.isRequired,
+  venues: PropTypes.array,
   user: PropTypes.any,
 };

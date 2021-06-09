@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import NotFound from '../views/NotFound';
 import ShowcaseView from '../views/ShowcaseView';
+import VenueView from '../views/VenueView';
+import AddVenue from '../views/AddVenue';
+import AddShowcase from '../views/AddShowcase';
+import SingleShowcase from '../views/SingleShowcase';
+import SingleVenue from '../views/SingleVenue';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
@@ -22,16 +27,37 @@ PrivateRoute.propTypes = {
   component: PropTypes.any
 };
 export default function Routes({
-  user, showcase, setShowcases
+  user, showcases, setShowcases, setVenues, venues, setShowcaseVenue, setVenueShowcases
 }) {
   return (
     <Switch>
       <Route exact path='/' component={() => <Home user={user}/>} />
       <PrivateRoute
         user={user}
-        path='/showcase'
-        component={() => <ShowcaseView user={user} showcase={showcase} setShowcases={setShowcases}/>}
+        path='/showcases'
+        component={() => <ShowcaseView user={user} showcases={showcases} setShowcases={setShowcases}/>}
         />
+      <PrivateRoute
+        user={user}
+        path='/venues'
+        component={() => <VenueView user={user} venues={venues} setVenues={setVenues}/>}
+        />
+      <PrivateRoute
+        user={user}
+        path='/add-venue'
+        component={() => <AddVenue user={user} venues={venues} setVenues={setVenues}/>}
+        />
+      <PrivateRoute
+        user={user}
+        path='/add-showcase'
+        component={() => <AddShowcase user={user} showcases={showcases} setShowcases={setShowcases} venues={venues}/>}
+        />
+      <Route
+        path='/showcase/:id'
+        component={() => <SingleShowcase setShowcaseVenue={setShowcaseVenue}/>} />
+              <Route
+        path='/venue/:id'
+        component={() => <SingleVenue setVenueShowcases={setVenueShowcases}/>} />
       <Route path='*' component={NotFound} />
     </Switch>
   );
@@ -40,5 +66,9 @@ export default function Routes({
 Routes.propTypes = {
   user: PropTypes.any,
   setShowcases: PropTypes.func.isRequired,
-  showcase: PropTypes.array.isRequired,
+  showcases: PropTypes.array.isRequired,
+  setVenues: PropTypes.func.isRequired,
+  setShowcaseVenue: PropTypes.func,
+  venues: PropTypes.array.isRequired,
+  setVenueShowcases: PropTypes.func,
 };

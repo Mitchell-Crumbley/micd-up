@@ -37,12 +37,18 @@ const deleteShowcase = (firebaseKey, user) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const updateShowcase = (obj, user) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/showcase/${obj.firebaseKey}.json`, obj)
-    .then(() => getShowcase(user).then((resp) => resolve(resp)))
+const updateShowcase = (showcaseObj, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/showcase/${showcaseObj.firebaseKey}.json`, showcaseObj)
+    .then(() => getShowcase(user).then((showcaseArray) => resolve(showcaseArray)))
+    .catch((error) => reject(error));
+});
+
+const getShowcaseVenue = (venueID) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/showcase.json?orderBy="venueID"&equalTo="${venueID}"`)
+    .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
 export {
-  getShowcase, getSingleShowcase, createShowcase, deleteShowcase, updateShowcase
+  getShowcase, getSingleShowcase, createShowcase, deleteShowcase, updateShowcase, getShowcaseVenue
 };

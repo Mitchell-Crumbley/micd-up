@@ -21,13 +21,22 @@ const NavBar = ({ user }) => {
   const authenticated = () => (
     <>
             <NavItem>
-              <Link className="nav-link" to="/showcase">Showcases</Link>
+              <Link className="nav-link" to="/showcases">All Shows</Link>
             </NavItem>
             <NavItem>
               <Link className="nav-link" to="/open-mic">Open Mics</Link>
             </NavItem>
             <NavItem>
+              <Link className="nav-link" to="/venues">Venues</Link>
+           </NavItem>
+            <NavItem>
               <Link className="nav-link" to="/profile">Profile</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/add-venue">Add Venue</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/add-showcase">Add Showcase</Link>
            </NavItem>
     </>
   );

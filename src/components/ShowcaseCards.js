@@ -16,7 +16,11 @@ const ShowcaseCards = ({
   imgUrl,
   details,
   setShowcases,
-  uid
+  openMic,
+  uid,
+  venues,
+  venueID,
+  venueName
 }) => {
   const [editing, setEditing] = useState(false);
   const history = useHistory();
@@ -33,7 +37,7 @@ const ShowcaseCards = ({
           .then(() => getShowcase(user))
           .then(setShowcases);
         break;
-      case 'show-pins':
+      case 'share':
         history.push(`showcase/${firebaseKey}`);
         break;
       default:
@@ -56,9 +60,13 @@ const ShowcaseCards = ({
             imgUrl={imgUrl}
             showcaseName={showcaseName}
             details={details}
+            openMic={openMic}
             uid={uid}
             user={user}
+            venues={venues}
+            venueID={venueID}
             time={time}
+            venueName={venueName}
           />
         </Card>
         </>
@@ -71,7 +79,10 @@ const ShowcaseCards = ({
             <div className="card-content">
               <CardTitle tag="h5">{showcaseName}</CardTitle>
               <CardText>{details}</CardText>
+              <CardText>{venueID}</CardText>
+              {(openMic === true) && <CardText className="text-danger"><i className="fas fa-user-secret"></i> Open Mic</CardText>}
                   <CardLink href="#" onClick={() => handleCardButton('delete')}>Delete</CardLink>
+                  <CardLink href="#" onClick={() => handleCardButton('share')}>Share</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('edit')}>
                   {editing ? 'Close Form' : 'Edit Board'}
                   </CardLink>
@@ -89,9 +100,13 @@ ShowcaseCards.propTypes = {
   showcaseName: PropTypes.string,
   details: PropTypes.string,
   imgUrl: PropTypes.string,
+  openMic: PropTypes.bool,
   user: PropTypes.any,
   setShowcases: PropTypes.func,
   uid: PropTypes.any,
+  venues: PropTypes.array,
+  venueID: PropTypes.string,
+  venueName: PropTypes.string
 };
 
 export default ShowcaseCards;

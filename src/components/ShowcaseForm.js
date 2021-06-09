@@ -6,17 +6,19 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { createShowcase, updateShowcase } from '../helpers/data/showcaseData';
 
-const ShowcaseForm = ({
+export default function ShowcaseForm({
   formTitle,
+  setShowcases,
+  showcaseName,
+  details,
+  imgUrl,
+  time,
   user,
   firebaseKey,
-  showcaseName,
-  time,
-  imgUrl,
-  details,
-  setShowcases,
   openMic,
-}) => {
+  venues,
+  venueID,
+}) {
   const [showcase, setShowcase] = useState({
     showcaseName: showcaseName || '',
     details: details || '',
@@ -24,7 +26,8 @@ const ShowcaseForm = ({
     time: time || '',
     firebaseKey: firebaseKey || null,
     uid: user.uid || null,
-    openMic: openMic || false
+    openMic: openMic || false,
+    venueID: venueID || null,
   });
 
   const handleInputChange = (e) => {
@@ -44,17 +47,6 @@ const ShowcaseForm = ({
     } else {
       createShowcase(showcase, user).then(setShowcases);
       history.push('/showcase');
-
-      // clear inputs
-      setShowcase({
-        showcaseName: '',
-        details: '',
-        time: '',
-        imgUrl: '',
-        location: '',
-        firebaseKey: null,
-        uid: null,
-      });
     }
   };
 
@@ -88,6 +80,18 @@ const ShowcaseForm = ({
         </FormGroup>
 
         <FormGroup>
+          <Label for="time">Time:</Label>
+          <Input
+            name='time'
+            id='time'
+            value={showcase.time}
+            type='text'
+            placeholder='Enter a Showcase Time'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
           <Label for="image">Showcase Image:</Label>
           <Input
             name='imgUrl'
@@ -98,6 +102,23 @@ const ShowcaseForm = ({
             onChange={handleInputChange}
           />
         </FormGroup>
+
+        <FormGroup>
+          <Label for="exampleSelect">Select a Venue</Label>
+            <Input type="select" name="venueID" onChange={handleInputChange}>
+              <option value="">Select</option>
+               {venues && venues.map((venueObj) => (
+                      <option
+                        value={venueObj.firebaseKey}
+                        key={venueObj.firebaseKey}
+                        user={user}
+                        >
+                        {venueObj.venueName}
+                      </option>
+               ))}
+          </Input>
+        </FormGroup>
+
         <FormGroup check>
           <Label check>
             <Input
@@ -107,7 +128,7 @@ const ShowcaseForm = ({
             checked={showcase.openMic}
             onChange={handleInputChange}
             />
-            Private ?
+            Open Mic?
         </Label>
         </FormGroup>
         <Button type='submit'>Submit</Button>
@@ -115,7 +136,7 @@ const ShowcaseForm = ({
       </Card>
     </div>
   );
-};
+}
 
 ShowcaseForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
@@ -128,7 +149,6 @@ ShowcaseForm.propTypes = {
   uid: PropTypes.string,
   user: PropTypes.any,
   openMic: PropTypes.bool,
-  className: PropTypes.string
+  venues: PropTypes.array,
+  venueID: PropTypes.string
 };
-
-export default ShowcaseForm;
