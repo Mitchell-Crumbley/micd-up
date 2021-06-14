@@ -35,7 +35,7 @@ export default function Routes({
       <PrivateRoute
         user={user}
         path='/showcases'
-        component={() => <ShowcaseView user={user} showcases={showcases} setShowcases={setShowcases}/>}
+        component={() => <ShowcaseView user={user} venues={venues} setVenues={setVenues} showcases={showcases} setShowcases={setShowcases}/>}
         />
       <PrivateRoute
         user={user}

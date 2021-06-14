@@ -46,7 +46,7 @@ export default function ShowcaseForm({
       updateShowcase(showcase, user).then(setShowcases);
     } else {
       createShowcase(showcase, user).then(setShowcases);
-      history.push('/showcase');
+      history.push('/showcases');
     }
   };
 

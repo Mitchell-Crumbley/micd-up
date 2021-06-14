@@ -24,13 +24,7 @@ const NavBar = ({ user }) => {
               <Link className="nav-link" to="/showcases">All Shows</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/open-mic">Open Mics</Link>
-            </NavItem>
-            <NavItem>
               <Link className="nav-link" to="/venues">Venues</Link>
-           </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/profile">Profile</Link>
            </NavItem>
            <NavItem>
               <Link className="nav-link" to="/add-venue">Add Venue</Link>
@@ -44,7 +38,7 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-      <Link className="navbar-brand" to="/">Home</Link>
+      <Link className="navbar-brand" to="/">Profile</Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

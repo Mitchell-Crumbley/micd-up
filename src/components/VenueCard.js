@@ -15,7 +15,7 @@ const VenueCards = ({
   venueName,
   location,
   uid,
-  setVunues
+  setVenues
 }) => {
   const [editing, setEditing] = useState(false);
   const history = useHistory();
@@ -28,9 +28,9 @@ const VenueCards = ({
         break;
       case 'delete':
         deleteVenue(firebaseKey, user)
-          .then(setVunues)
+          .then(setVenues)
           .then(() => getVenue(user))
-          .then(setVunues);
+          .then(setVenues);
         break;
       case 'share':
         history.push(`venue/${firebaseKey}`);
@@ -50,7 +50,7 @@ const VenueCards = ({
           </CardLink>
           <VenueForm className='edit-form'
             formTitle='Edit Venue'
-            setVunues={setVunues}
+            setVenues={setVenues}
             firebaseKey={firebaseKey}
             venueImg={venueImg}
             venueName={venueName}
@@ -88,7 +88,7 @@ VenueCards.propTypes = {
   venueName: PropTypes.string,
   venueImg: PropTypes.string,
   user: PropTypes.any,
-  setVunues: PropTypes.func,
+  setVenues: PropTypes.func,
   uid: PropTypes.any,
 };
 

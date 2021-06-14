@@ -4,4 +4,11 @@
 
 body {
   background-color: $favColor;
+  background-image: url('https://thethingsilearnedfrom.com/wp-content/uploads/2015/01/stage-microphone.jpg');
+  background-size: cover;
+  justify-content: center;
+}
+
+.navbar-profile-image {
+  border-radius: 50%;
 }

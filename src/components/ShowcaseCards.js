@@ -51,7 +51,7 @@ const ShowcaseCards = ({
       editing ? <>
       <Card className="m-4 board-card">
           <CardLink className="form-close" href="#" onClick={() => handleCardButton('edit')}>
-            {editing ? 'Close Form' : 'Edit Board'}
+            {editing ? 'Close Form' : 'Edit Showcase'}
           </CardLink>
           <ShowcaseForm className='edit-form'
             formTitle='Edit Showcase'
@@ -79,12 +79,11 @@ const ShowcaseCards = ({
             <div className="card-content">
               <CardTitle tag="h5">{showcaseName}</CardTitle>
               <CardText>{details}</CardText>
-              <CardText>{venueID}</CardText>
               {(openMic === true) && <CardText className="text-danger"><i className="fas fa-user-secret"></i> Open Mic</CardText>}
                   <CardLink href="#" onClick={() => handleCardButton('delete')}>Delete</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('share')}>Share</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('edit')}>
-                  {editing ? 'Close Form' : 'Edit Board'}
+                  {editing ? 'Close Form' : 'Edit Showcase'}
                   </CardLink>
               </div>
             </CardImgOverlay>
