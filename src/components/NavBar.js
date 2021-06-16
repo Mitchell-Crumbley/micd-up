@@ -32,6 +32,9 @@ const NavBar = ({ user }) => {
            <NavItem>
               <Link className="nav-link" to="/add-showcase">Add Showcase</Link>
            </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/random-show">Random Showcase</Link>
+           </NavItem>
     </>
   );
 
