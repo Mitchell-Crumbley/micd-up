@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 import { Button } from 'reactstrap';
-import RandomShows from '../helpers/data/RandomArray';
+// import RandomShows from '../helpers/data/RandomArray';
+// import { getShowcase } from '../helpers/data/showcaseData';
 // import GitHubLogo from '../assets/GitHubLogo.png';
 
 const typeTextStyle = {
@@ -27,10 +28,19 @@ const HomeStyle = {
 //   }
 // };
 export default function Home({ user }) {
-  // const [showcases, setShowcase] = useState({});
+  // const [allRandomShows, setAllRandomShows] = useState([]);
+  // const [showRandoms, setShowRandoms] = useState(false);
+
+  // const handleClick = () => {
+  //   setShowRandoms(true);
+  //   setAllRandomShows(allRandomShows[RandomShows]);
+  // };
 
   // useEffect(() => {
-  //   RandomShows(showcases).then(setShowcase);
+  //   getShowcase(user.uid)
+  //     .then((showcases) => {
+  //       setAllRandomShows(showcases);
+  //     });
   // }, []);
 
   return (
@@ -53,8 +63,20 @@ export default function Home({ user }) {
        }}
         />
     </div>
-    <Button color='danger' onClick={RandomShows}>Random Week</Button>
+    <Button color='danger' onClick={'Nothing Click'}>Random Week</Button>
     <h1 className="stack-top">My Week!</h1>
+    {/* {showRandoms
+      ? <div className="random-showcase-container">
+            <RandomShows
+              key={showRandoms.firebaseKey}
+              firebaseKey={showRandoms.firebaseKey}
+              name={showRandoms.name}
+              user={user}
+              viewTitle={'LetsEat'}
+            />
+        </div>
+      : ''
+      } */}
     </div>
   );
 }
