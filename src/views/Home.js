@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 import { Button } from 'reactstrap';
+import RandomShowArray from '../components/ShowRandomArray';
+// import { RandomShows } from '../helpers/data/RandomArray';
+// import ShowRandomShows from '../components/ShowRandomArray';
 // import RandomShows from '../helpers/data/RandomArray';
 // import { getShowcase } from '../helpers/data/showcaseData';
 // import GitHubLogo from '../assets/GitHubLogo.png';
@@ -17,17 +20,8 @@ const typeTextStyle = {
 const HomeStyle = {
   color: 'white',
 };
-
-// const handleHomeButton = (type) => {
-//   switch (type) {
-//     case 'sort':
-//       RandomShows((prevState) => !prevState);
-//       break;
-//     default:
-//       console.warn('No button clicked');
-//   }
-// };
-export default function Home({ user }) {
+export default function Home({ user, showcases }) {
+  const [editing, setEditing] = useState(false);
   // const [allRandomShows, setAllRandomShows] = useState([]);
   // const [showRandoms, setShowRandoms] = useState(false);
 
@@ -35,6 +29,16 @@ export default function Home({ user }) {
   //   setShowRandoms(true);
   //   setAllRandomShows(allRandomShows[RandomShows]);
   // };
+
+  const handleHomeButton = (type) => {
+    switch (type) {
+      case 'sort':
+        setEditing((prevState) => !prevState);
+        break;
+      default:
+        console.warn('No button clicked');
+    }
+  };
 
   // useEffect(() => {
   //   getShowcase(user.uid)
@@ -63,25 +67,20 @@ export default function Home({ user }) {
        }}
         />
     </div>
-    <Button color='danger' onClick={'Nothing Click'}>Random Week</Button>
+    {/* <RandomShows showcases={showcases}/> */}
+    <Button color='danger' onClick={() => handleHomeButton('sort')} >Random Week</Button>
     <h1 className="stack-top">My Week!</h1>
-    {/* {showRandoms
-      ? <div className="random-showcase-container">
-            <RandomShows
-              key={showRandoms.firebaseKey}
-              firebaseKey={showRandoms.firebaseKey}
-              name={showRandoms.name}
+    {
+    editing && <RandomShowArray
+              showcases={showcases}
               user={user}
-              viewTitle={'LetsEat'}
             />
-        </div>
-      : ''
-      } */}
+      }
     </div>
   );
 }
 
 Home.propTypes = {
   user: PropTypes.any,
-  showcases: PropTypes.array.isRequired
+  showcases: PropTypes.array.isRequired,
 };

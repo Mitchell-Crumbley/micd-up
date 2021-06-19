@@ -9,7 +9,7 @@ import AddVenue from '../views/AddVenue';
 import AddShowcase from '../views/AddShowcase';
 import SingleShowcase from '../views/SingleShowcase';
 import SingleVenue from '../views/SingleVenue';
-import RandomShows from './data/RandomArray';
+import RandomShowArray from '../components/ShowRandomArray';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
@@ -56,7 +56,7 @@ export default function Routes({
         <PrivateRoute
         user={user}
         path='/random-show'
-        component={() => <RandomShows user={user} showcases={showcases} setShowcases={setShowcases}/>}
+        component={() => <RandomShowArray user={user} showcases={showcases} setShowcases={setShowcases}/>}
         />
       <Route
         path='/showcase/:id'
