@@ -10,6 +10,7 @@ import AddShowcase from '../views/AddShowcase';
 import SingleShowcase from '../views/SingleShowcase';
 import SingleVenue from '../views/SingleVenue';
 import RandomShowArray from '../components/ShowRandomArray';
+import ActivityForm from '../components/ActivityForm';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
@@ -28,7 +29,7 @@ PrivateRoute.propTypes = {
   component: PropTypes.any
 };
 export default function Routes({
-  user, showcases, setShowcases, setVenues, venues, setShowcaseVenue, setVenueShowcases
+  user, showcases, setShowcases, setVenues, venues, setShowcaseVenue, setVenueShowcases, activity, setActivities
 }) {
   return (
     <Switch>
@@ -58,6 +59,11 @@ export default function Routes({
         path='/random-show'
         component={() => <RandomShowArray user={user} showcases={showcases} setShowcases={setShowcases}/>}
         />
+        <PrivateRoute
+        user={user}
+        path='/activity'
+        component={() => <ActivityForm user={user} activity={activity} setActivities={setActivities}/>}
+        />
       <Route
         path='/showcase/:id'
         component={() => <SingleShowcase setShowcaseVenue={setShowcaseVenue}/>} />
@@ -77,4 +83,6 @@ Routes.propTypes = {
   setShowcaseVenue: PropTypes.func,
   venues: PropTypes.array.isRequired,
   setVenueShowcases: PropTypes.func,
+  setActivities: PropTypes.func,
+  activity: PropTypes.array.isRequired,
 };

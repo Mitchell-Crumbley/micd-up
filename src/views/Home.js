@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 import { Button } from 'reactstrap';
 import RandomShowArray from '../components/ShowRandomArray';
+import AddActivity from './AddActivity';
 // import { RandomShows } from '../helpers/data/RandomArray';
 // import ShowRandomShows from '../components/ShowRandomArray';
 // import RandomShows from '../helpers/data/RandomArray';
@@ -22,6 +23,7 @@ const HomeStyle = {
 };
 export default function Home({ user, showcases }) {
   const [editing, setEditing] = useState(false);
+  const [practice, setPractice] = useState(false);
   // const [allRandomShows, setAllRandomShows] = useState([]);
   // const [showRandoms, setShowRandoms] = useState(false);
 
@@ -34,6 +36,9 @@ export default function Home({ user, showcases }) {
     switch (type) {
       case 'sort':
         setEditing((prevState) => !prevState);
+        break;
+      case 'stats':
+        setPractice((prevState) => !prevState);
         break;
       default:
         console.warn('No button clicked');
@@ -69,10 +74,16 @@ export default function Home({ user, showcases }) {
     </div>
     {/* <RandomShows showcases={showcases}/> */}
     <Button color='danger' onClick={() => handleHomeButton('sort')} >Random Week</Button>
+    <Button color='danger' onClick={() => handleHomeButton('stats')} >Add Activity</Button>
     <h1 className="stack-top">My Week!</h1>
     {
     editing && <RandomShowArray
               showcases={showcases}
+              user={user}
+            />
+      }
+    {
+    practice && <AddActivity
               user={user}
             />
       }

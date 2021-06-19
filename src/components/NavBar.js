@@ -35,6 +35,9 @@ const NavBar = ({ user }) => {
            <NavItem>
               <Link className="nav-link" to="/random-show">Random Showcase</Link>
            </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/activity">Activity</Link>
+           </NavItem>
     </>
   );
 

@@ -13,6 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [showcases, setShowcases] = useState([]);
   const [venues, setVenues] = useState([]);
+  const [activity, setActivities] = useState([]);
 
   // Authentication for Firebase on initial render
   useEffect(() => {
@@ -36,13 +37,15 @@ function App() {
   return (
     <>
      <Router>
-      <NavBar user={user} setShowcases={setShowcases} setVenues={setVenues}/>
+      <NavBar user={user} setShowcases={setShowcases} setVenues={setVenues} setActivities={setActivities}/>
       <Routes
       user={user}
       showcases={showcases}
       setShowcases={setShowcases}
       venues={venues}
       setVenues={setVenues}
+      activity={activity}
+      setActivities={setActivities}
         />
       </Router>
     </>
