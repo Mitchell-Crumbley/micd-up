@@ -80,16 +80,22 @@ export default function ShowcaseForm({
         </FormGroup>
 
         <FormGroup>
-          <Label for="time">Time:</Label>
-          <Input
-            name='time'
-            id='time'
-            value={showcase.time}
-            type='text'
-            placeholder='Enter a Showcase Time'
-            onChange={handleInputChange}
-          />
-        </FormGroup>
+        <Label for="exampleSelect">Select Day</Label>
+        <Input
+        type="select"
+        name="time"
+        id="time"
+        onChange={handleInputChange}
+        value={showcase.time}>
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </Input>
+      </FormGroup>
 
         <FormGroup>
           <Label for="image">Showcase Image:</Label>

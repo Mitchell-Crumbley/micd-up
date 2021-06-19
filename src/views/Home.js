@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { Button } from 'reactstrap';
+import RandomShowArray from '../components/ShowRandomArray';
+// import { RandomShows } from '../helpers/data/RandomArray';
+// import ShowRandomShows from '../components/ShowRandomArray';
+// import RandomShows from '../helpers/data/RandomArray';
+// import { getShowcase } from '../helpers/data/showcaseData';
 // import GitHubLogo from '../assets/GitHubLogo.png';
 
 const typeTextStyle = {
@@ -17,6 +21,32 @@ const HomeStyle = {
   color: 'white',
 };
 export default function Home({ user, showcases }) {
+  const [editing, setEditing] = useState(false);
+  // const [allRandomShows, setAllRandomShows] = useState([]);
+  // const [showRandoms, setShowRandoms] = useState(false);
+
+  // const handleClick = () => {
+  //   setShowRandoms(true);
+  //   setAllRandomShows(allRandomShows[RandomShows]);
+  // };
+
+  const handleHomeButton = (type) => {
+    switch (type) {
+      case 'sort':
+        setEditing((prevState) => !prevState);
+        break;
+      default:
+        console.warn('No button clicked');
+    }
+  };
+
+  // useEffect(() => {
+  //   getShowcase(user.uid)
+  //     .then((showcases) => {
+  //       setAllRandomShows(showcases);
+  //     });
+  // }, []);
+
   return (
     <div style={HomeStyle}>
       { user
@@ -37,65 +67,20 @@ export default function Home({ user, showcases }) {
        }}
         />
     </div>
+    {/* <RandomShows showcases={showcases}/> */}
+    <Button color='danger' onClick={() => handleHomeButton('sort')} >Random Week</Button>
     <h1 className="stack-top">My Week!</h1>
-    <VerticalTimeline>
-    <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-    date="2011 - present"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    // icon={GitHubLogo}
-  >
-    <h3 className="vertical-timeline-element-title">Creative Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-    <p>
-      {showcases.showcaseName}
-      Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2010 - 2011"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    // icon={GitHubLogo}
-  >
-    <h3 className="vertical-timeline-element-title">Art Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2008 - 2010"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    // icon={GitHubLogo}
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2006 - 2008"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    // icon={GitHubLogo}
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-
-</VerticalTimeline>
+    {
+    editing && <RandomShowArray
+              showcases={showcases}
+              user={user}
+            />
+      }
     </div>
   );
 }
 
 Home.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  showcases: PropTypes.array.isRequired,
 };
