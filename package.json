@@ -16,6 +16,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-search-field": "^1.2.1",
+    "react-slot-machine-gen": "^1.0.5",
+    "react-transition-group": "^2.9.0",
     "react-vertical-timeline-component": "^3.3.3",
     "reactstrap": "^8.9.0",
     "typewriter-effect": "^2.17.0",
