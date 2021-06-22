@@ -127,3 +127,25 @@
 .activity-form {
   color: black
 }
+
+.text-center {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.progress-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 20em;
+}
+
+.Circle {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

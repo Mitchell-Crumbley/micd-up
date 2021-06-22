@@ -4,6 +4,7 @@ import Typewriter from 'typewriter-effect';
 import { Button } from 'reactstrap';
 import RandomShowArray from '../components/ShowRandomArray';
 import AddActivity from './AddActivity';
+import ProgressBar from '../components/ProgressBar';
 // import { RandomShows } from '../helpers/data/RandomArray';
 // import ShowRandomShows from '../components/ShowRandomArray';
 // import RandomShows from '../helpers/data/RandomArray';
@@ -72,6 +73,12 @@ export default function Home({ user, showcases }) {
        }}
         />
     </div>
+    <ProgressBar/>
+    {
+    practice && <AddActivity
+              user={user}
+            />
+      }
     {/* <RandomShows showcases={showcases}/> */}
     <Button color='danger' onClick={() => handleHomeButton('sort')} >Random Week</Button>
     <Button color='danger' onClick={() => handleHomeButton('stats')} >Add Activity</Button>
@@ -79,11 +86,6 @@ export default function Home({ user, showcases }) {
     {
     editing && <RandomShowArray
               showcases={showcases}
-              user={user}
-            />
-      }
-    {
-    practice && <AddActivity
               user={user}
             />
       }
