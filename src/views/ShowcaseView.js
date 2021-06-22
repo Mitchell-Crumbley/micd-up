@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ShowcaseCards from '../components/ShowcaseCards';
-import SearchBar from './SearchBar';
 
 export default function ShowcaseView({
   showcases, user, setShowcases, venues
@@ -10,16 +9,22 @@ export default function ShowcaseView({
   const [filterShow, setFilterShow] = useState('');
 
   useEffect(() => {
-    setFilteredData(
-      restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(search.toLowerCase()))
+    setFilterShow(
+      showcases.filter((showcase) => showcase.showcaseName.toLowerCase().includes(search.toLowerCase()))
     );
-  }, [search, restaurants]);
+  }, [search, showcases]);
+
   return (
     <div>
         <div className="form-group mb-4 d-flex justify-content-center">
          <input type="search" id="search" placeholder="Search by shows name..." aria-describedby="button-addon" className="form-control" onChange={(e) => setSearch(e.target.value)}/>
         </div>
-        {showcases.map((showcaseObj) => (
+        { filterShow.length === 0
+          ? <div className="d-flex flex-column justify-content-center">
+                <h5 className="text-center my-3">No Shows found with that name!</h5>
+            </div>
+          : <>
+        {filterShow.map((showcaseObj) => (
           <ShowcaseCards
             key={showcaseObj.firebaseKey}
             firebaseKey={showcaseObj.firebaseKey}
@@ -30,7 +35,9 @@ export default function ShowcaseView({
             {...showcaseObj}
           />
         ))}
-      </div>
+        </>
+        }
+    </div>
   );
 }
 
