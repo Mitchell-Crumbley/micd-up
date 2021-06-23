@@ -22,7 +22,7 @@ const typeTextStyle = {
 const HomeStyle = {
   color: 'white',
 };
-export default function Home({ user, showcases }) {
+export default function Home({ user, showcases, activity }) {
   const [editing, setEditing] = useState(false);
   const [practice, setPractice] = useState(false);
   // const [allRandomShows, setAllRandomShows] = useState([]);
@@ -73,7 +73,10 @@ export default function Home({ user, showcases }) {
        }}
         />
     </div>
-    <ProgressBar/>
+    {<ProgressBar
+    activity={activity}
+    user={user}
+    />}
     {
     practice && <AddActivity
               user={user}
@@ -96,4 +99,5 @@ export default function Home({ user, showcases }) {
 Home.propTypes = {
   user: PropTypes.any,
   showcases: PropTypes.array.isRequired,
+  activity: PropTypes.array.isRequired,
 };

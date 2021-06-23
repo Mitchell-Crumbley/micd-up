@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import VenueCards from '../components/VenueCard';
 
 export default function VenueView({
-  venues, user, setVenues, setShowcases
+  venues, user, setVenues
 }) {
   const [search, setSearch] = useState('');
   const [filterVenue, setFilterVenue] = useState('');
@@ -28,7 +28,6 @@ export default function VenueView({
         <VenueCards
           key={venueObj.firebaseKey}
           user={user}
-          setShowcases={setShowcases}
           setVenues={setVenues}
           {...venueObj}
         />
@@ -43,6 +42,5 @@ export default function VenueView({
 VenueView.propTypes = {
   venues: PropTypes.array,
   setVenues: PropTypes.func.isRequired,
-  setShowcases: PropTypes.func.isRequired,
   user: PropTypes.any,
 };

@@ -33,7 +33,7 @@ export default function Routes({
 }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Home user={user} showcases={showcases} setShowcases={setShowcases}/>} />
+      <Route exact path='/' component={() => <Home user={user} showcases={showcases} setShowcases={setShowcases} activity={activity}/>} />
       <PrivateRoute
         user={user}
         path='/showcases'
