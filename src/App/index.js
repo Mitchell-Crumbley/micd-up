@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
 import { getShowcase } from '../helpers/data/showcaseData';
 import { getVenue } from '../helpers/data/venueData';
+import { getActivity } from '../helpers/data/activityData';
 
 function App() {
   // This hook maintains state of user in app, the absense of which resulting in the state of null
@@ -28,6 +29,7 @@ function App() {
         setUser(userObj);
         getShowcase(userObj).then(setShowcases);
         getVenue(userObj).then(setVenues);
+        getActivity(userObj).then(setActivities);
       } else if (user || user === null) {
         setUser(false);
       }

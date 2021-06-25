@@ -10,7 +10,8 @@ import AddShowcase from '../views/AddShowcase';
 import SingleShowcase from '../views/SingleShowcase';
 import SingleVenue from '../views/SingleVenue';
 import RandomShowArray from '../components/ShowRandomArray';
-import ActivityForm from '../components/ActivityForm';
+import AddActivity from '../views/AddActivity';
+import ActivityView from '../views/ActivityView';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
@@ -33,7 +34,7 @@ export default function Routes({
 }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <Home user={user} showcases={showcases} setShowcases={setShowcases} activity={activity}/>} />
+      <Route exact path='/' component={() => <Home user={user} showcases={showcases} setShowcases={setShowcases} activity={activity} setActivities={setActivities}/>} />
       <PrivateRoute
         user={user}
         path='/showcases'
@@ -43,6 +44,11 @@ export default function Routes({
         user={user}
         path='/venues'
         component={() => <VenueView user={user} venues={venues} setVenues={setVenues}/>}
+        />
+      <PrivateRoute
+        user={user}
+        path='/activity'
+        component={() => <ActivityView user={user} activity={activity} setActivities={setActivities}/>}
         />
       <PrivateRoute
         user={user}
@@ -61,8 +67,8 @@ export default function Routes({
         />
         <PrivateRoute
         user={user}
-        path='/activity'
-        component={() => <ActivityForm user={user} activity={activity} setActivities={setActivities}/>}
+        path='/add-activity'
+        component={() => <AddActivity user={user} activity={activity} setActivities={setActivities}/>}
         />
       <Route
         path='/showcase/:id'

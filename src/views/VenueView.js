@@ -10,7 +10,7 @@ export default function VenueView({
 
   useEffect(() => {
     setFilterVenue(
-      venues.filter((venue) => venue.venueName.toLowerCase().includes(search.toLowerCase()))
+      venues.filter((aVenue) => aVenue.venueName.toLowerCase().includes(search.toLowerCase()))
     );
   }, [search, venues]);
   return (

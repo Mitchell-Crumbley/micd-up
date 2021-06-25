@@ -27,16 +27,16 @@ const NavBar = ({ user }) => {
               <Link className="nav-link" to="/venues">Venues</Link>
            </NavItem>
            <NavItem>
+              <Link className="nav-link" to="/activity">Activity</Link>
+           </NavItem>
+           <NavItem>
               <Link className="nav-link" to="/add-venue">Add Venue</Link>
            </NavItem>
            <NavItem>
               <Link className="nav-link" to="/add-showcase">Add Showcase</Link>
            </NavItem>
            <NavItem>
-              <Link className="nav-link" to="/random-show">Random Showcase</Link>
-           </NavItem>
-           <NavItem>
-              <Link className="nav-link" to="/activity">Activity</Link>
+              <Link className="nav-link" to="/add-activity">Add Activity</Link>
            </NavItem>
     </>
   );

@@ -22,7 +22,9 @@ const typeTextStyle = {
 const HomeStyle = {
   color: 'white',
 };
-export default function Home({ user, showcases, activity }) {
+export default function Home({
+  user, showcases, activity
+}) {
   const [editing, setEditing] = useState(false);
   const [practice, setPractice] = useState(false);
   // const [allRandomShows, setAllRandomShows] = useState([]);
@@ -41,17 +43,11 @@ export default function Home({ user, showcases, activity }) {
       case 'stats':
         setPractice((prevState) => !prevState);
         break;
+
       default:
         console.warn('No button clicked');
     }
   };
-
-  // useEffect(() => {
-  //   getShowcase(user.uid)
-  //     .then((showcases) => {
-  //       setAllRandomShows(showcases);
-  //     });
-  // }, []);
 
   return (
     <div style={HomeStyle}>
@@ -73,18 +69,19 @@ export default function Home({ user, showcases, activity }) {
        }}
         />
     </div>
-    {<ProgressBar
-    activity={activity}
-    user={user}
-    />}
+    {
+     <ProgressBar
+        activity={activity}
+        user={user}
+     />
+    }
     {
     practice && <AddActivity
               user={user}
             />
       }
-    {/* <RandomShows showcases={showcases}/> */}
     <Button color='danger' onClick={() => handleHomeButton('sort')} >Random Week</Button>
-    <Button color='danger' onClick={() => handleHomeButton('stats')} >Add Activity</Button>
+    {/* <Button color='danger' onClick={() => handleHomeButton('stats')} >Add Activity</Button> */}
     <h1 className="stack-top">My Week!</h1>
     {
     editing && <RandomShowArray
@@ -100,4 +97,5 @@ Home.propTypes = {
   user: PropTypes.any,
   showcases: PropTypes.array.isRequired,
   activity: PropTypes.array.isRequired,
+  setActivities: PropTypes.func,
 };

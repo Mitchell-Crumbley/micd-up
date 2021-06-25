@@ -18,11 +18,18 @@ const ActivityForm = ({
   const history = useHistory();
   const [activity, setActivity] = useState({
     activityName: activityName || '',
-    time: time || '',
+    time: parseInt(time, 10) || 0,
     notes: notes || '',
     firebaseKey: firebaseKey || null,
     uid: user.uid || null,
   });
+
+  const handleNumberInput = (e) => {
+    setActivity((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.valueAsNumber
+    }));
+  };
 
   const handleInputChange = (e) => {
     setActivity((prevState) => ({
@@ -38,13 +45,13 @@ const ActivityForm = ({
       updateActivity(activity, user).then(setActivities);
     } else {
       createActivity(activity, user).then(setActivities);
-      history.push('/activity');
+      history.push('/');
 
       // clear inputs
       setActivity({
         activity: '',
         notes: '',
-        time: '',
+        time: 0,
         firebaseKey: null,
         uid: null,
       });
@@ -60,7 +67,7 @@ const ActivityForm = ({
           <Label for="exampleSelect">Select an Activity</Label>
             <Input type="select" name="activityName" onChange={handleInputChange} value={activity.activity}>
               <option value="">Select</option>
-              <option>Writing</option>
+              <option>In The Lab</option>
               <option>Showcase</option>
               <option>Networking</option>
               <option>Open Mic</option>
@@ -72,10 +79,9 @@ const ActivityForm = ({
           <Input
             name='time'
             id='time'
-            value={activity.time}
+            value= {parseInt(activity.time, 10)}
             type='number'
-            placeholder='Enter a Activity Description'
-            onChange={handleInputChange}
+            onChange={handleNumberInput}
           />
         </FormGroup>
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ShowcaseCards from '../components/ShowcaseCards';
+// import { Circle } from 'rc-progress';
+// import AnimatedNumber from 'react-animated-number/build/AnimatedNumber';
+import ActivityCards from '../components/ActivityCards';
 
 const projStyle = {
   textAlign: 'center',
@@ -14,17 +16,17 @@ const projStyle = {
   flexFlow: 'row wrap',
 };
 
-export default function ShowcaseView({
-  showcases, user, setShowcases, venues
+export default function ActivityView({
+  activity, user, setActivities, venues,
 }) {
   const [search, setSearch] = useState('');
   const [filterShow, setFilterShow] = useState('');
 
   useEffect(() => {
     setFilterShow(
-      showcases.filter((showcase) => showcase.showcaseName.toLowerCase().includes(search.toLowerCase()))
+      activity.filter((anActivity) => anActivity.activityName.toLowerCase().includes(search.toLowerCase()))
     );
-  }, [search, showcases]);
+  }, [search, activity]);
 
   return (
     <div>
@@ -37,16 +39,18 @@ export default function ShowcaseView({
                 <h5 className="text-center my-3">No Shows found with that name!</h5>
             </div>
           : <>
-        {filterShow.map((showcaseObj) => (
-          <ShowcaseCards
-            key={showcaseObj.firebaseKey}
-            firebaseKey={showcaseObj.firebaseKey}
+        {filterShow.map((activityObj) => (
+          <>
+          <ActivityCards
+            key={activityObj.firebaseKey}
+            firebaseKey={activityObj.firebaseKey}
             user={user}
-            uid={showcaseObj.uid}
-            setShowcases={setShowcases}
+            uid={activityObj.uid}
+            setActivities={setActivities}
             venues={venues}
-            {...showcaseObj}
+            {...activityObj}
           />
+        </>
         ))}
         </>
         }
@@ -55,9 +59,11 @@ export default function ShowcaseView({
   );
 }
 
-ShowcaseView.propTypes = {
-  showcases: PropTypes.array,
-  setShowcases: PropTypes.func.isRequired,
+ActivityView.propTypes = {
+  activity: PropTypes.array,
+  setActivities: PropTypes.func.isRequired,
+  activityName: PropTypes.string,
+  time: PropTypes.number,
   venues: PropTypes.array,
   user: PropTypes.any,
 };
