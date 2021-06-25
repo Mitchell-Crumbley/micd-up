@@ -37,9 +37,9 @@ const deleteVenue = (firebaseKey, user) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const updateVenue = (obj, user) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/venue/${obj.firebaseKey}.json`, obj)
-    .then(() => getVenue(user).then((resp) => resolve(resp)))
+const updateVenue = (venueObj, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/venue/${venueObj.firebaseKey}.json`, venueObj)
+    .then(() => getVenue(user).then((venueArray) => resolve(venueArray)))
     .catch((error) => reject(error));
 });
 

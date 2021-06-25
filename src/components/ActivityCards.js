@@ -2,25 +2,22 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Card, CardText, CardImgOverlay, CardLink,
-  CardTitle, CardImg
+  CardTitle,
+  CardImg,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { deleteShowcase, getShowcase } from '../helpers/data/showcaseData';
-import ShowcaseForm from './ShowcaseForm';
+import { deleteActivity, getActivity } from '../helpers/data/activityData';
+import ActivityForm from './ActivityForm';
+import Writing from '../assets/Writing.jpg';
 
-const ShowcaseCards = ({
+const ActivityCards = ({
   user,
   firebaseKey,
-  showcaseName,
+  activityName,
   time,
-  imgUrl,
-  details,
-  setShowcases,
-  openMic,
+  notes,
+  setActivities,
   uid,
-  venues,
-  venueID,
-  venueName
 }) => {
   const [editing, setEditing] = useState(false);
   const history = useHistory();
@@ -32,13 +29,13 @@ const ShowcaseCards = ({
         setEditing((prevState) => !prevState);
         break;
       case 'delete':
-        deleteShowcase(firebaseKey, user)
-          .then(setShowcases)
-          .then(() => getShowcase(user))
-          .then(setShowcases);
+        deleteActivity(firebaseKey, user)
+          .then(setActivities)
+          .then(() => getActivity(user))
+          .then(setActivities);
         break;
       case 'share':
-        history.push(`showcase/${firebaseKey}`);
+        history.push(`activity/${firebaseKey}`);
         break;
       default:
         console.warn('No button clicked');
@@ -51,39 +48,34 @@ const ShowcaseCards = ({
       editing ? <>
       <Card className="m-4 board-card">
           <CardLink className="form-close" href="#" onClick={() => handleCardButton('edit')}>
-            {editing ? 'Close Form' : 'Edit Showcase'}
+            {editing ? 'Close Form' : 'Edit Activity'}
           </CardLink>
-          <ShowcaseForm className='edit-form'
-            formTitle='Edit Showcase'
-            setShowcases={setShowcases}
+          <ActivityForm className='edit-form'
+            formTitle='Edit Activity'
+            setActivities={setActivities}
             firebaseKey={firebaseKey}
-            imgUrl={imgUrl}
-            showcaseName={showcaseName}
-            details={details}
-            openMic={openMic}
+            activityName={activityName}
+            notes={notes}
             uid={uid}
             user={user}
-            venues={venues}
-            venueID={venueID}
             time={time}
-            venueName={venueName}
           />
         </Card>
         </>
         : <Card className="m-4 board-card" inverse key={firebaseKey}>
             <div className="img-div">
-              <CardImg className="card-img" width="100%" src={imgUrl} alt={showcaseName} />
+              <CardImg className="card-img" width="100%" src={Writing} alt={activityName} />
             </div>
             <div className="overlay"></div>
             <CardImgOverlay>
             <div className="card-content">
-              <CardTitle tag="h5">{showcaseName}</CardTitle>
-              <CardText>{details}</CardText>
-              {(openMic === true) && <CardText className="text-danger"><i className="fas fa-user-secret"></i> Open Mic</CardText>}
+              <CardTitle tag="h5">{activityName}</CardTitle>
+              <CardText>{notes}</CardText>
+              <CardText>{time}</CardText>
                   <CardLink href="#" onClick={() => handleCardButton('delete')}>Delete</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('share')}>Share</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('edit')}>
-                  {editing ? 'Close Form' : 'Edit Showcase'}
+                  {editing ? 'Close Form' : 'Edit Activity'}
                   </CardLink>
               </div>
             </CardImgOverlay>
@@ -93,19 +85,14 @@ const ShowcaseCards = ({
   );
 };
 
-ShowcaseCards.propTypes = {
+ActivityCards.propTypes = {
   firebaseKey: PropTypes.string.isRequired,
-  time: PropTypes.string,
-  showcaseName: PropTypes.string,
-  details: PropTypes.string,
-  imgUrl: PropTypes.string,
-  openMic: PropTypes.bool,
+  time: PropTypes.number,
+  activityName: PropTypes.string,
+  notes: PropTypes.string,
   user: PropTypes.any,
-  setShowcases: PropTypes.func,
+  setActivities: PropTypes.func,
   uid: PropTypes.any,
-  venues: PropTypes.array,
-  venueID: PropTypes.string,
-  venueName: PropTypes.string
 };
 
-export default ShowcaseCards;
+export default ActivityCards;

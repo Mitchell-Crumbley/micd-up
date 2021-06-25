@@ -1,6 +1,15 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'variables';
+@import 'showcaseStyles';
 
 body {
   background-color: $favColor;
+  background-image: url('https://thethingsilearnedfrom.com/wp-content/uploads/2015/01/stage-microphone.jpg');
+  background-size: cover;
+  background-position: unset;
+  justify-content: center;
+}
+
+.navbar-profile-image {
+  border-radius: 50%;
 }

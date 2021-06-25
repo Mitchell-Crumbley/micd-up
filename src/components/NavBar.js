@@ -21,13 +21,22 @@ const NavBar = ({ user }) => {
   const authenticated = () => (
     <>
             <NavItem>
-              <Link className="nav-link" to="/showcase">Showcases</Link>
+              <Link className="nav-link" to="/showcases">All Shows</Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/open-mic">Open Mics</Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/profile">Profile</Link>
+              <Link className="nav-link" to="/venues">Venues</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/activity">Activity</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/add-venue">Add Venue</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/add-showcase">Add Showcase</Link>
+           </NavItem>
+           <NavItem>
+              <Link className="nav-link" to="/add-activity">Add Activity</Link>
            </NavItem>
     </>
   );
@@ -35,7 +44,7 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-      <Link className="navbar-brand" to="/">Home</Link>
+      <Link className="navbar-brand" to="/">Profile</Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
