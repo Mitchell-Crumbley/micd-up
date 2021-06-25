@@ -11,16 +11,19 @@ import ProgressBar from '../components/ProgressBar';
 // import { getShowcase } from '../helpers/data/showcaseData';
 // import GitHubLogo from '../assets/GitHubLogo.png';
 
-const typeTextStyle = {
-  width: '550px',
-  height: '120px',
-  bottom: '-350px',
-  color: 'white',
-  fontSize: '25px',
-};
+// const typeTextStyle = {
+//   width: '550px',
+//   height: '120px',
+//   bottom: '-350px',
+//   color: 'white',
+//   fontSize: '25px',
+//   textAlign: 'center',
+//   alignContent: 'center'
+// };
 
 const HomeStyle = {
   color: 'white',
+  textAlign: 'center',
 };
 export default function Home({
   user, showcases, activity
@@ -55,9 +58,9 @@ export default function Home({
         ? <h1 className="stack-top">Hello, {user.fullName}</h1>
         : <h1 className="stack-top">Please Sign In!</h1>
       }
-    {/* <img src={user.profileImage} circular avatar size='small' className='navbar-profile-image'/> */}
+      <br></br>
     <h1 className="stack-top">Some Jokes</h1>
-    <div style={typeTextStyle}>
+    <h4>
       <Typewriter
        options={{
          strings: ['"Why do books have an appendix? It feels like we can take those out."', '"I tried donating blood last week but they kept asking where I got it from."', '"This morning my shoes were tied, now the left one is winning."', '"If a police office falls down and no one is around to see it, do they get backup?"'],
@@ -68,7 +71,9 @@ export default function Home({
          deleteSpeed: 20
        }}
         />
-    </div>
+    </h4>
+    <br></br>
+    <br></br>
     {
      <ProgressBar
         activity={activity}

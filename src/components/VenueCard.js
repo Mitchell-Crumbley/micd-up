@@ -44,7 +44,7 @@ const VenueCards = ({
     <div>
       {
       editing ? <>
-      <Card className="m-4 venue-card">
+      <Card className="m-4 board-card">
           <CardLink className="form-close" href="#" onClick={() => handleCardButton('edit')}>
             {editing ? 'Close Form' : 'Edit Venue'}
           </CardLink>
@@ -60,7 +60,7 @@ const VenueCards = ({
           />
         </Card>
         </>
-        : <Card className="m-4 venue-card" inverse key={firebaseKey}>
+        : <Card className="m-4 board-card" inverse key={firebaseKey}>
             <div className="img-div">
               <CardImg className="card-img" width="100%" src={venueImg} alt={venueName} />
             </div>

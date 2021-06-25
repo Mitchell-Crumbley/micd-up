@@ -24,25 +24,25 @@ export default function ProgressBar({
 <div className="progress-container" key={firebaseKey}>
   <>
       <div className="text-center">Writing {AverageWritingArray(activity)}%
-      <Circle percent={AverageWritingArray(activity)} strokeWidth="4" strokeColor={{
+      <Circle percent={AverageWritingArray(activity)} strokeWidth="8" strokeColor={{
         '0%': '#108ee9',
         '100%': '#87d068',
       }} />
       </div>
       <div className="text-center">Networking {AverageNetworkingArray(activity)}%
-      <Circle percent={AverageNetworkingArray(activity)} strokeWidth="4" strokeColor={{
+      <Circle percent={AverageNetworkingArray(activity)} strokeWidth="8" strokeColor={{
         '0%': '#ffe601',
         '100%': '#108ee9',
       }} />
       </div>
       <div className="text-center">Showcase {AverageShowcaseArray(activity)}%
-      <Circle percent={AverageShowcaseArray(activity)} strokeWidth="4" strokeColor={{
+      <Circle percent={AverageShowcaseArray(activity)} strokeWidth="8" strokeColor={{
         '0%': '#108ee9',
         '100%': '#ff0000',
       }} />
       </div>
       <div className="text-center">Open Mic {AverageOpenMicArray(activity)}%
-      <Circle percent={AverageOpenMicArray(activity)} strokeWidth="4" strokeColor={{
+      <Circle percent={AverageOpenMicArray(activity)} strokeWidth="8" strokeColor={{
         '0%': '#108ee9',
         '100%': '#ff0000',
       }} />

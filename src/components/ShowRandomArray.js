@@ -18,9 +18,9 @@ const RandomShowArray = ({
       {...showcaseObj}>
    <VerticalTimelineElement
       className="vertical-timeline-element--left"
+      date={showcaseObj.time}
       contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
       contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-      date={showcaseObj.time}
       iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
        >
       <h3 className="vertical-timeline-element-title"> {showcaseObj.showcaseName}</h3>
@@ -30,7 +30,7 @@ const RandomShowArray = ({
       </p>
   </VerticalTimelineElement>
 
-   {/* <VerticalTimelineElement
+   <VerticalTimelineElement
       className="vertical-timeline-element--right"
       date={showcaseObj.time}
       iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
@@ -40,7 +40,7 @@ const RandomShowArray = ({
       <p>
       {showcaseObj.details}
       </p>
-    </VerticalTimelineElement> */}
+    </VerticalTimelineElement>
   </VerticalTimeline>
       ))}
     </ul>
