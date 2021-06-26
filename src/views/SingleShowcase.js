@@ -26,6 +26,7 @@ export default function SingleShowcase() {
         <div className="card-content">
           <CardTitle tag="h5">{showcase.showcaseName}</CardTitle>
           <CardText>{showcase.details}</CardText>
+          <CardText>{showcase.time}</CardText>
         </div>
         </CardImgOverlay>
       </Card>
