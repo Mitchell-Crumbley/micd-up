@@ -49,7 +49,7 @@ const ShowcaseCards = ({
     <div>
       {
       editing ? <>
-      <Card className="m-4 board-card">
+      <Card className="m-4 board-card" style="boxshadow: '5px 10px #888888';">
           <CardLink className="form-close" href="#" onClick={() => handleCardButton('edit')}>
             {editing ? 'Close Form' : 'Edit Showcase'}
           </CardLink>
