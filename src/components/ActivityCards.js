@@ -73,7 +73,6 @@ const ActivityCards = ({
               <CardText>{notes}</CardText>
               <CardText>{time}</CardText>
                   <CardLink href="#" onClick={() => handleCardButton('delete')}>Delete</CardLink>
-                  <CardLink href="#" onClick={() => handleCardButton('share')}>Share</CardLink>
                   <CardLink href="#" onClick={() => handleCardButton('edit')}>
                   {editing ? 'Close Form' : 'Edit Activity'}
                   </CardLink>

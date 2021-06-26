@@ -7,6 +7,11 @@ import {
 import { getSingleVenue } from '../helpers/data/venueData';
 import { getShowcaseVenue } from '../helpers/data/showcaseData';
 
+const HomeStyle = {
+  color: 'white',
+  textAlign: 'center',
+};
+
 export default function SingleVenue() {
   const [venue, setVenue] = useState({});
   const [venueShowcases, setVenueShowcases] = useState([]);
@@ -27,12 +32,12 @@ export default function SingleVenue() {
         <div className="overlay"></div>
         <CardImgOverlay>
         <div className="card-content">
-          <CardTitle tag="h5">{venue.venueName}</CardTitle>
-          <CardText>{venue.venueName}</CardText>
+          <CardTitle style={HomeStyle} tag="h5">{venue.venueName}</CardTitle>
+          <CardText style={HomeStyle}>{venue.venueName}</CardText>
         </div>
         </CardImgOverlay>
       </Card>
-      <h2>Pin belongs to {venueShowcases.showcaseName} board</h2>
+      <h2 style={HomeStyle}>Shows belongs to {venueShowcases.showcaseName} board</h2>
       <div className="venue-container">
       {venueShowcases.map((venueShowcasesArray) => (
         <Card className="m-4 venue-card" key={venueShowcasesArray.firebaseKey} inverse>
@@ -42,8 +47,8 @@ export default function SingleVenue() {
         <div className="overlay"></div>
         <CardImgOverlay>
         <div className="card-content">
-          <CardTitle tag="h5">{venueShowcasesArray.showcaseName}</CardTitle>
-          <CardText>{venueShowcasesArray.details}</CardText>
+          <CardTitle tag="h5" style={HomeStyle}>{venueShowcasesArray.showcaseName}</CardTitle>
+          <CardText style={HomeStyle}>{venueShowcasesArray.details}</CardText>
         </div>
         </CardImgOverlay>
       </Card>
